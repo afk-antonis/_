@@ -167,7 +167,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #f4f3f1 url("../img/") no-repeat center center;
+  background: #f4f3f1;
   color: rgb(205, 4, 4);
   overflow-y: scroll;
 }

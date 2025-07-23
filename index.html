@@ -10,85 +10,76 @@
 
   <style>
     html, body {
-      height: 100%;
-      margin: 0;
-      overflow-x: hidden;
-    }
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
 
-    body {
-      display: flex;
-      flex-direction: column;
-      font-family: 'AntoniadisBasic', sans-serif;
-       background-image: url('assets/img/indexback.jpeg');
-      background-size: 130%;
-      background-position: center;
-      background-position-x: 4%;
-      background-position-y: 50%;
-      background-repeat: no-repeat;
-      overflow: hidden;
-      
-    }
-    
-    .page-wrapper {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-     
-    }
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'AntoniadisBasic', sans-serif;
+  background-image: url('assets/img/indexback_sans.png');
+  background-size: cover;
+  background-size: 125%;
+  background-position: -4% 53%;
+}
 
-    .hamburger {
-      z-index: 11;
-    }
+.page-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    /* Make iframe fill viewport and sit behind content */
-    #map-bg {
-      position: fixed;
-      top: 0;
-      left: 30px;
-      width: 60vh;
-      height: 60vh;
-      border: none;
-      border-radius: 15px;
-      margin-top: 100px;
-      z-index: 1;
-      pointer-events: auto;
-      filter: brightness(0.8);
-      aspect-ratio: 16 / 9;
-    }
+/* Map iframe */
+#map-bg {
+  position: fixed;
+  top: 0;
+  left: 30px;
+  width: 60vh;
+  height: 60vh;
+  border: none;
+  border-radius: 15px;
+  margin-top: 100px;
+  z-index: 1;
+  pointer-events: auto;
+  filter: brightness(0.8);
+  aspect-ratio: 16 / 9;
+}
 
-    /* Content area styling */
-    
+/* Hamburger */
+.hamburger {
+  z-index: 11;
+}
 
-    /* Responsive layout adjustments */
-    @media (min-width: 768px) {
-      .page-wrapper {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-      }
+/* Desktop layout tweaks */
+@media (min-width: 768px) {
+  .page-wrapper {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+ 
+/* ✅ Mobile layout */
+@media (max-width: 480px) {
+  .marquee-container {
+    font-size: 1rem;
+  }
 
-    
-    }
+  #map-bg {
+    width: 30vh;
+    height: 30vh;
+  }
 
-    @media (max-width: 480px) {
-      .marquee-container {
-        font-size: 1rem;
-      }
+  body {
+    background-size: cover !important;
+    background-size: 150%;
 
-      #map-bg {
-        display: inline;
-        width: 30vh;
-        height: 30vh;
-      }
+  }
+}
 
-      main.content {
-        padding: 1rem;
-      }
-      body {
-       background-size: 170%;
-     
-      }
-    }
+
   </style>
 </head>
 
@@ -108,8 +99,7 @@
     }, 2000); // << stays for 2 seconds before fade starts
  }} );
  </script>
-  <div class="page-wrapper"></div>
-         <div id="page-content" style="visibility: hidden;">
+         <div class="page-wrapper" id="page-content" style="visibility: hidden;">
 
   <!-- Background map iframe 
   <iframe

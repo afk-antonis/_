@@ -97,13 +97,68 @@
   font-weight: 900;
   font-style: normal; 
 }
-
+/* manrope-200 - greek_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/manrope-v19-greek_latin-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* manrope-300 - greek_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/manrope-v19-greek_latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* manrope-regular - greek_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/manrope-v19-greek_latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* manrope-500 - greek_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/manrope-v19-greek_latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* manrope-600 - greek_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/manrope-v19-greek_latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* manrope-700 - greek_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/manrope-v19-greek_latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* manrope-800 - greek_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/manrope-v19-greek_latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 /* ======================
    Base Styles
 ====================== */
 
 body {
-  font-family: 'AntoniadisBasic', 'AvenirNext', 'Rag', sans-serif; /* added generic fallback */
+  font-family: 'AntoniadisBasic', 'AvenirNext', 'Rag', 'Manrope' sans-serif; /* added generic fallback */
   font-size: 20px;
   text-align: justify;
   margin: 20px 20px 0 20px;
@@ -187,7 +242,7 @@ nav {
   top: 10px;
   right: 85px;
   z-index: 1000;
-  font-family: 'AvenirNext', sans-serif;
+  font-family: 'Manrope', sans-serif;
   display: none;
   gap: 0;
 }
@@ -207,7 +262,7 @@ nav a {
   list-style: lower-greek;
   letter-spacing: 0;
   background: transparent;
-  filter: drop-shadow(0 0 2px #04cdcd);
+  filter:none;
   transition: all 0.3s ease;
 }
 
@@ -343,6 +398,7 @@ nav a:focus,
 footer,
 #footer-placeholder {
   width: 100%;
+  font-family: 'AntoniadisBasic';
   position: static;
   bottom: 0;
   left: 0;
@@ -668,7 +724,7 @@ ul.custom-bullets {
 
 .hamburger {
   position: fixed;
-  font-family: 'AvenirNext', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 30px;
   right: 55px;
   top: 20px;

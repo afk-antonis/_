@@ -2,175 +2,199 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="antonis antoniadis site" />
   <title>antonis antoniadis</title>
 
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <style>
+    :root {
+      --base-font-size: 30px;
+    }
+
     html, body {
-  height: 100%;
-  margin: 0;
-  overflow-x: hidden;
-}
+      height: 100%;
+      margin: 0;
+      overflow-x: hidden;
+      font-size: var(--base-font-size);
+      font-family: 'AntoniadisBasic', sans-serif;
+    }
 
-body {
-  display: flex;
-  flex-direction: column;
-  font-family: 'AntoniadisBasic', sans-serif;
-  background-image: url('assets/img/indexback.jpeg');
-  background-size: cover;
-  background-size: 125%;
-  background-position: -4% 53%;
-}
+    p, span, li, h1, h2, h3, h4, h5, h6, a {
+      font-size: inherit;
+    }
 
-.page-wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+    body {
+      display:flex;
+      flex-direction: column;
+      background-image: url('assets/img/indexback.jpeg');
+      width: 100%;
+      height: auto;
+      background-position: 40% 50%;
+      background-repeat: no-repeat;
+    }
 
-/* Map iframe */
-#map-bg {
-  position: fixed;
-  top: 0;
-  left: 30px;
-  width: 60vh;
-  height: 60vh;
-  border: none;
-  border-radius: 15px;
-  margin-top: 100px;
-  z-index: 1;
-  pointer-events: auto;
-  filter: brightness(0.8);
-  aspect-ratio: 16 / 9;
-}
+    .page-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      visibility: hidden; /* Controlled by loader script */
+    }
 
-/* Hamburger */
-.hamburger {
-  z-index: 11;
-}
+    /* Map iframe (commented out in HTML, styles kept) */
+    #map-bg {
+      position: fixed;
+      top: 0;
+      left: 30px;
+      width: 60vh;
+      height: 60vh;
+      border: none;
+      border-radius: 15px;
+      margin-top: 100px;
+      z-index: 1;
+      pointer-events: auto;
+      filter: brightness(0.8);
+      aspect-ratio: 16 / 9;
+    }
 
-/* Desktop layout tweaks */
-@media (min-width: 768px) {
-  .page-wrapper {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-  }
-}
- 
-/* ✅ Mobile layout */
-@media (max-width: 480px) {
-  .marquee-container {
-    font-size: 1rem;
-  }
+    /* Hamburger button */
+    .hamburger {
+      z-index: 11;
+      font-size: 24px;
+    }
 
-  #map-bg {
-    width: 30vh;
-    height: 30vh;
-  }
+    /* Desktop layout tweaks */
+    @media (min-width: 768px) {
+      .page-wrapper {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
 
-  body {
-    background-size: cover !important;
-    background-size: 290% !important;
-    background-position: 33% 70% !important;
-    background-repeat: no-repeat;
-  }
-  h1 {
-    font-size: 20px !important;
-  }
-  header {
-    font-size: 20px !important;
-  }
+    /* Mobile layout */
+    @media (max-width: 480px) {
+      #map-bg {
+        width: 30vh;
+        height: 30vh;
+      }
+      body{
+        background-position: 48% 50%;
+      }
+    }
 
-  
-}
+    /* Main heading */
+    main.content > h1 {
+      position: fixed;
+      top: 8%;
+      padding-left: 30px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 900;
+      color: #04cdcd;
+    }
+    @media screen and (max-width: 480px) {
+      main.content > h1 {
+        margin: 0 0px 0 auto;
+      }
+      
+    }
 
+    /* Marquee container */
+    .marquee-container {
+      text-align: justify;
+      margin-top: 200px;
+      height: 24px
+    }
+
+    .marquee-content {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 900;
+            color: #04cdcd !important;
+
+      direction: ltr;
+    }
 
   </style>
 </head>
 
 <body>
   <div id="loader">
-  <p>♥</p>
+    <p>♥</p>
   </div>
-  <script>window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  const content = document.getElementById("page-content");
- if (loader && content) {
-    setTimeout(() => {
-      loader.classList.add("fade-out");
-      content.classList.add("visible");
-      content.style.visibility = "visible";
-      setTimeout(() => loader.remove(), 3000); // match fade duration
-    }, 2000); // << stays for 2 seconds before fade starts
- }} );
- </script>
-         <div class="page-wrapper" id="page-content" style="visibility: hidden;">
 
-  <!-- Background map iframe 
-  <iframe
-    id="map-bg"
-    title="School International Theater Jacques Lecoq"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d68.396696003736!2d4.816193483354865!3d43.95167958517097!2m3!1f180!2f39.57098695771198!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x12b5ed0d36441063%3A0xe91ef05456c27f7d!2sSchool%20International%20Theater%20Jacques%20Lecoq!5e1!3m2!1sen!2sgr!4v1751829300811!5m2!1sen!2sgr"
-    allowfullscreen
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>-->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      const content = document.getElementById("page-content");
+      if (loader && content) {
+        setTimeout(() => {
+          loader.classList.add("fade-out");
+          content.classList.add("visible");
+          content.style.visibility = "visible";
+          setTimeout(() => loader.remove(), 3000); // match fade duration
+        }, 2000); // loader visible for 2 seconds
+      }
+    });
+  </script>
 
-  <!-- Home button include -->
-  <div id="home-button-container"></div>
- 
-  <!-- Hamburger button -->
-        <button class="hamburger" aria-haspopup="true" aria-expanded="false" aria-controls="menu" aria-label="Main menu">
-    <span></span>
-    <span class="menu-label" style="font-size: 24px;">home</span>
-    <span></span>
-  </button>
+  <div class="page-wrapper" id="page-content">
+    <!-- Background map iframe (commented out) -->
+    <!--
+    <iframe
+      id="map-bg"
+      title="School International Theater Jacques Lecoq"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d68.396696003736!2d4.816193483354865!3d43.95167958517097!2m3!1f180!2f39.57098695771198!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x12b5ed0d36441063%3A0xe91ef05456c27f7d!2sSchool%20International%20Theater%20Jacques%20Lecoq!5e1!3m2!1sen!2sgr!4v1751829300811!5m2!1sen!2sgr"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    -->
 
-  <!-- Navigation include -->
-  <div id="nav-container"></div>
+    <!-- Home button include -->
+    <div id="home-button-container"></div>
 
+    <!-- Hamburger button -->
+    <button class="hamburger" aria-haspopup="true" aria-expanded="false" aria-controls="menu" aria-label="Main menu">
+      <span></span>
+      <span class="menu-label">home</span>
+      <span></span>
+    </button>
 
-  <noscript>
-    <p>Please enable JavaScript to view the navigation menu.</p>
-  </noscript>
+    <!-- Navigation include -->
+    <div id="nav-container"></div>
 
-  <!-- Page Content -->
+    <noscript>
+      <p>Please enable JavaScript to view the navigation menu.</p>
+    </noscript>
 
-
+    <!-- Page Content -->
     <main class="content">
-      <h1 
-      style="display: flex; position: relative; padding: 0px 00px 00px 30px;
-      font-family: 'Manrope';font-weight: 900; font-size: 30px; 
-      color: #04cdcd; position:relative;margin: 0px 40px 0 auto; ">
-      Antonis<br> Antoniadis</h1>
-      <header class="marquee-container" style="text-align: justify; margin-top: 200px; color: rgb(240, 4, 4);">
-        <div class="marquee-content" style="font-family: 'Manrope'; font-size: 30px; font-weight: 900;" lang="el">
-          γιατί οι νεκροί κάνουν γκριμάτσες; / 
+      <h1>
+        Antonis<br /> Antoniadis
+      </h1>
+
+      <header class="marquee-container" lang="el">
+        <div class="marquee-content">
+          γιατί οι νεκροί κάνουν γκριμάτσες; /
           κάτω από λινάτσες οι φάτσες, τα μπράτσα πέφτουν /
           η φάρσα είχε γίνει ο χρόνος κλείνει /
           πόσο κοστίζει ένα γιγαμπάιτ που σβήνει; /
           από τη Σμύρνη τι έχει απομείνει;
         </div>
-        <p></p>
       </header>
 
       <!-- Additional page-specific content can go here -->
     </main>
-       
+
     <!-- Footer include -->
     <div id="footer-placeholder"></div>
   </div>
-</div>
+
   <noscript>
     <p>Please enable JavaScript to view the footer content.</p>
   </noscript>
 
-  <!-- Font size control -->
-
   <script src="assets/js/main.js" defer></script>
-</body> 
+</body>
 </html>

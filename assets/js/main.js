@@ -1,17 +1,27 @@
+const root = document.documentElement;
+
 // ====================
-// Font Size Control
+// Font Size Control (using CSS variable)
 // ====================
-function setFontSize(sizeClass) {
-  document.body.classList.remove('font-small', 'font-medium', 'font-large');
-  document.body.classList.add(sizeClass);
+let computedSize = getComputedStyle(document.body).fontSize;
+let currentSize = parseInt(computedSize);
+
+console.log("Raw computed font-size:", computedSize);
+console.log("Parsed font-size:", currentSize);
+
+if (isNaN(currentSize)) {
+  console.warn("Could not parse font size; using fallback of 18px.");
+}
+
+function updateFontSize(delta) {
+  currentSize = Math.min(32, Math.max(12, currentSize + delta));
+  root.style.setProperty("--base-font-size", `${currentSize}px`);
 }
 
 // ====================
 // DOM Ready
 // ====================
 window.addEventListener("DOMContentLoaded", () => {
-  setFontSize('font-medium');
-
   // Load includes in sequence
   Promise.all([
     fetch('assets/includes/home-button.html').then(res => res.text()),
@@ -22,15 +32,13 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("footer-placeholder").innerHTML = footerHTML;
     document.getElementById("nav-container").innerHTML = navHTML;
 
-    setupNavigation();
-  });
+    console.log("font-smaller button:", document.getElementById("font-smaller"));
+    console.log("font-bigger button:", document.getElementById("font-bigger"));
 
-  // Font size control buttons
-  document.querySelectorAll('.font-size-control').forEach(button => {
-    button.addEventListener('click', () => {
-      const sizeClass = button.getAttribute('data-size');
-      setFontSize(sizeClass);
-    });
+    document.getElementById("font-smaller")?.addEventListener("click", () => updateFontSize(-2));
+    document.getElementById("font-bigger")?.addEventListener("click", () => updateFontSize(2));
+
+    setupNavigation();
   });
 });
 
@@ -77,7 +85,7 @@ function setupNavigation() {
   if (isMobile) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');      
+      navMenu.classList.toggle('active');
     });
   } else {
     hamburger.addEventListener('mouseenter', () => {
@@ -98,9 +106,9 @@ function setupNavigation() {
       hamburger.classList.remove('active');
       navMenu.classList.remove('active');
     });
+
     hamburger.addEventListener('click', () => {
-          window.location.href = "index.html";
-        
+      window.location.href = "index.html";
     });
   }
 }
@@ -117,3 +125,5 @@ if (typeof lightbox !== 'undefined') {
     'albumLabel': "%1 of %2"
   });
 }
+
+console.log("Font size buttons connected:", currentSize);

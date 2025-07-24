@@ -79,11 +79,6 @@ function setupNavigation() {
       menuLabel.classList.remove("translated");
     });
 
-    // ✅ Only menuLabel (not full hamburger) redirects to index
-    menuLabel.addEventListener("click", (e) => {
-      e.stopPropagation(); // stop click from bubbling
-      window.location.href = "index.html";
-    });
 
     // Hover to reveal nav
     hamburger.addEventListener("mouseenter", () => {

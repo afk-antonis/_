@@ -82,37 +82,41 @@ function setupNavigation() {
   });
 
   // Nav reveal (hover on desktop, click on mobile)
-  if (isMobile) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-  } else {
-    hamburger.addEventListener('mouseenter', () => {
-      hamburger.classList.add('active');
-      navMenu.classList.add('active');
-    });
+if (isMobile) {
+  // Mobile: Instant toggle, no delay, no redirect
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+} else {
+  // Desktop: Reveal on hover, and link to index on menu-label click
+  hamburger.addEventListener('mouseenter', () => {
+    hamburger.classList.add('active');
+    navMenu.classList.add('active');
+  });
 
-    hamburger.addEventListener('mouseleave', () => {
-      setTimeout(() => {
-        if (!navMenu.matches(':hover')) {
-          hamburger.classList.remove('active');
-          navMenu.classList.remove('active');
-        }
-      }, 200);
-    });
+  hamburger.addEventListener('mouseleave', () => {
+    setTimeout(() => {
+      if (!navMenu.matches(':hover')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      }
+    }, 200);
+  });
 
-    navMenu.addEventListener('mouseleave', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-    });
+  navMenu.addEventListener('mouseleave', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+  });
 
-    hamburger.addEventListener('click', () => {
-      window.location.href = "index.html";
-    });
-  }
+  // Desktop only: clicking the "home" label links to index
+  const homeLabel = hamburger.querySelector('.menu-label');
+  homeLabel.addEventListener('click', (e) => {
+    e.stopPropagation();
+    window.location.href = "index.html";
+  });
 }
-
+}
 // ====================
 // Lightbox Settings
 // ====================

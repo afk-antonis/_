@@ -12,7 +12,11 @@
     :root {
       --base-font-size: 30px;
     }
-
+    @media (max-width: 480px) {
+      :root {
+      --base-font-size: 24px;
+    }
+  }
     html, body {
       height: 100%;
       margin: 0;
@@ -80,7 +84,7 @@
         height: 30vh;
       }
       body{
-        background-position: 48% 50%;
+        background-position: 48% 60%;
       }
     }
 

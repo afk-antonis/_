@@ -160,7 +160,7 @@
 body {
   font-family: 'AntoniadisBasic', 'AvenirNext', 'Rag', 'Manrope', sans-serif; 
   text-align: justify;
-  margin: 20px 20px 0 20px;
+  margin: 20px 20px 0px 20px;
   padding: 0;
   font-size: var(--base-font-size);
   min-height: 100vh;
@@ -177,8 +177,19 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 600px) {
-  .home-button, .font-size-controls, .hamburger {
+   .font-size-controls button{
+    background: #04cdcd !important;
+  }
+.font-size-controls{
     transform: scale(0.85);
+  }
+
+  .hamburger {
+    transform: scale(0.85);
+    color: #04cdcd !important;
+  }
+   .home-button {
+    transform: scale(0.95);
   }
 }
 
@@ -304,13 +315,33 @@ nav a:focus,
 }
 @media (max-width:480px){nav {
   position: fixed;
-  top: 60px;
+  top: 40px;
   right: 10px;
   z-index: 1000;
   font-family: 'Manrope', sans-serif;
   display: none;
   gap: 0;
-}}
+}
+nav a:hover, nav a.active {color: transparent;
+  font-weight: 700;
+  background: linear-gradient(
+    120deg,
+    #ffffff 10%,
+    #04cdcd 30%,
+    rgb(111, 157, 157) 50%,
+    rgb(4, 205,205) 90%,
+    #ffffff 70%
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: bloodFlow 5s alternate infinite, bloodTechPulse 1.5s infinite alternate;
+  transform: scale(1.1);
+  text-shadow: none;
+  text-decoration: none;
+
+}
+}
 
 /* ======================
    Animations
@@ -737,9 +768,15 @@ ul.custom-bullets {
   position: fixed;
   font-family: 'Manrope', sans-serif;
   font-size: 30px;
-  right: 55px;
-  top: 20px;
-
+  right: 50px;
+  top: 10px;
+  
+  z-index: 1000;
+  display: flex;
+ 
+  padding: 5px 10px;
+  border-radius: 8px;
+  
   width: 30px;
   height: 30px;
   color: rgb(205, 4, 4);

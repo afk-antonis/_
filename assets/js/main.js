@@ -60,63 +60,61 @@ function setupNavigation() {
     }
   });
 
-  // Language switching
+  // Language switch (desktop only)
   const translations = ["home", "heim", "σπίτι"];
   let lastIndex = -1;
 
-  hamburger.addEventListener("mouseover", () => {
-    if (!menuLabel) return;
+  if (!isMobile && menuLabel) {
+    hamburger.addEventListener("mouseover", () => {
+      let index;
+      do {
+        index = Math.floor(Math.random() * translations.length);
+      } while (index === lastIndex);
+      lastIndex = index;
+      menuLabel.textContent = translations[index];
+      menuLabel.classList.add("translated");
+    });
 
-    let index;
-    do {
-      index = Math.floor(Math.random() * translations.length);
-    } while (index === lastIndex);
-    lastIndex = index;
+    hamburger.addEventListener("mouseout", () => {
+      menuLabel.classList.remove("translated");
+    });
 
-    menuLabel.textContent = translations[index];
-    menuLabel.classList.add("translated");
-  });
+    // ✅ Only menuLabel (not full hamburger) redirects to index
+    menuLabel.addEventListener("click", (e) => {
+      e.stopPropagation(); // stop click from bubbling
+      window.location.href = "index.html";
+    });
 
-  hamburger.addEventListener("mouseout", () => {
-    menuLabel.classList.remove("translated");
-  });
+    // Hover to reveal nav
+    hamburger.addEventListener("mouseenter", () => {
+      hamburger.classList.add("active");
+      navMenu.classList.add("active");
+    });
 
-  // Nav reveal (hover on desktop, click on mobile)
-if (isMobile) {
-  // Mobile: Instant toggle, no delay, no redirect
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-  });
-} else {
-  // Desktop: Reveal on hover, and link to index on menu-label click
-  hamburger.addEventListener('mouseenter', () => {
-    hamburger.classList.add('active');
-    navMenu.classList.add('active');
-  });
+    hamburger.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        if (!navMenu.matches(':hover')) {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+        }
+      }, 200);
+    });
 
-  hamburger.addEventListener('mouseleave', () => {
-    setTimeout(() => {
-      if (!navMenu.matches(':hover')) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      }
-    }, 200);
-  });
+    navMenu.addEventListener("mouseleave", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    });
+  }
 
-  navMenu.addEventListener('mouseleave', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-  });
-
-  // Desktop only: clicking the "home" label links to index
-  const homeLabel = hamburger.querySelector('.menu-label');
-  homeLabel.addEventListener('click', (e) => {
-    e.stopPropagation();
-    window.location.href = "index.html";
-  });
+  // ✅ Mobile toggle behavior (no redirect!)
+  if (isMobile) {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    });
+  }
 }
-}
+
 // ====================
 // Lightbox Settings
 // ====================

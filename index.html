@@ -92,15 +92,17 @@
     /* Main heading */
     main.content > h1 {
       position: fixed;
-      top: 8%;
-      padding-left: 30px;
+      top: 20%;
+      padding-left: 0px;
       font-family: 'Manrope', sans-serif;
       font-weight: 900;
       color: #cd0404;
+      text-align: center !important;
     }
     @media screen and (max-width: 480px) {
       main.content > h1 {
-        margin: 0 0px 0 auto;
+        margin: 0% 30% 0 0;
+      
       }
       
     }
@@ -137,7 +139,7 @@
           loader.classList.add("fade-out");
           content.classList.add("visible");
           content.style.visibility = "visible";
-          setTimeout(() => loader.remove(), 3000); // match fade duration
+          setTimeout(() => loader.remove(), 2500); // match fade duration
         }, 2000); // loader visible for 2 seconds
       }
     });
@@ -157,7 +159,7 @@
     -->
 
     <!-- Home button include -->
-    <div id="home-button-container"></div>
+    <div id="home-button-container" style="display: none"></div>
 
     <!-- Hamburger button -->
     <button class="hamburger" aria-haspopup="true" aria-expanded="false" aria-controls="menu" aria-label="Main menu">
@@ -175,7 +177,7 @@
 
     <!-- Page Content -->
     <main class="content">
-      <h1>
+      <h1 id="header-translate">
         Antonis<br /> Antoniadis
       </h1>
 

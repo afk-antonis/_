@@ -950,3 +950,10 @@ ul.custom-bullets {
 #loader p {
   animation: pulse 1.2s infinite ease-in-out;
 }
+
+#header-translate {
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 ;
+}

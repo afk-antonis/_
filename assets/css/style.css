@@ -160,7 +160,7 @@
 body {
   font-family: 'AntoniadisBasic', 'AvenirNext', 'Rag', 'Manrope', sans-serif; 
   text-align: justify;
-  margin: 20px 20px 0px 20px;
+  margin: 20px;
   padding: 0;
   font-size: var(--base-font-size);
   min-height: 100vh;
@@ -176,23 +176,30 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+/* Mobile-specific adjustments for consistent alignment */
 @media (max-width: 600px) {
-   .font-size-controls button{
+  body {
+    margin: 20px;
+  }
+  
+  .font-size-controls button {
     background: #04cdcd !important;
   }
-.font-size-controls{
+  
+  .font-size-controls {
     transform: scale(0.85);
+    left: 20px !important; /* Align with body margin */
   }
 
   .hamburger {
     transform: scale(0.85);
     color: #04cdcd !important;
   }
-   .home-button {
+  
+  .home-button {
     transform: scale(0.95);
   }
 }
-
 
 /* ======================
    Typography & Content
@@ -204,7 +211,6 @@ header {
 }
 
 h1 {
-
   margin-bottom: 0.1em;
 }
 
@@ -214,7 +220,7 @@ section {
 
 img {
   border-radius: 8px;
-  margin-top: 20px;
+ 
 }
 
 a {
@@ -313,34 +319,39 @@ nav a:focus,
 .hamburger {
   display: block;
 }
-@media (max-width:480px){nav {
-  position: fixed;
-  top: 40px;
-  right: 10px;
-  z-index: 1000;
-  font-family: 'Manrope', sans-serif;
-  display: none;
-  gap: 0;
-}
-nav a:hover, nav a.active {color: transparent;
-  font-weight: 700;
-  background: linear-gradient(
-    120deg,
-    #ffffff 10%,
-    #04cdcd 30%,
-    rgb(111, 157, 157) 50%,
-    rgb(4, 205,205) 90%,
-    #ffffff 70%
-  );
-  background-size: 300% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: bloodFlow 5s alternate infinite, bloodTechPulse 1.5s infinite alternate;
-  transform: scale(1.1);
-  text-shadow: none;
-  text-decoration: none;
 
-}
+/* Mobile navigation alignment fixes */
+@media (max-width: 480px) {
+  nav {
+    position: fixed;
+    top: 40px;
+    right: 10px; /* Align with hamburger position */
+    z-index: 1000;
+    font-family: 'Manrope', sans-serif;
+    display: none;
+    gap: 0;
+  }
+  
+  nav a:hover, 
+  nav a.active {
+    color: transparent;
+    font-weight: 700;
+    background: linear-gradient(
+      120deg,
+      #ffffff 10%,
+      #04cdcd 30%,
+      rgb(111, 157, 157) 50%,
+      rgb(4, 205,205) 90%,
+      #ffffff 70%
+    );
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: bloodFlow 5s alternate infinite, bloodTechPulse 1.5s infinite alternate;
+    transform: scale(1.1);
+    text-shadow: none;
+    text-decoration: none;
+  }
 }
 
 /* ======================
@@ -439,20 +450,23 @@ footer,
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-sizing: inherit;
-  padding: 0;
+  box-sizing: border-box;
   font-size: 16px;
   color: rgb(205, 4, 4);
   background: transparent;
+  margin: 0 0px; /* Counteract body margin for full-width footer */
 }
 
+
 footer .social-links {
-  margin-top: -11px;
+  margin-top: 9px;
 }
 
 footer .social-links a {
   margin: 0 7px;
   display: inline-block;
+  align-items: baseline;
+  justify-content: center;
   transition: transform 0.1s ease;
 }
 
@@ -490,7 +504,8 @@ footer .social-links a:hover img {
 #home-button-container {
   position: fixed;
   top: 10px;
-  left: calc(50% - 25px);
+  left: 50%;
+  transform: translateX(-50%); /* Perfect centering */
   z-index: 999;
   width: 60px;
   height: 60px;
@@ -508,6 +523,7 @@ footer .social-links a:hover img {
 }
 
 .home-button img {
+  margin-top: 20px;
   width: 150%;
   height: 150%;
   filter: drop-shadow(0 0 2px #cd0404);
@@ -541,7 +557,7 @@ footer .social-links a:hover img {
 .floating-nav-wrapper {
   position: fixed;
   top: 10px;
-  right: 10px;
+  right: 20px; /* Aligned with body margin on mobile */
   z-index: 1000;
   display: flex;
   gap: 8px;
@@ -549,6 +565,12 @@ footer .social-links a:hover img {
   border-radius: 8px;
   font-size: 12px !important;
   backdrop-filter: blur(0);
+}
+
+@media (max-width: 480px) {
+  .floating-nav-wrapper {
+    right: 20px; /* Consistent alignment */
+  }
 }
 
 .floating-nav-wrapper nav {
@@ -568,7 +590,7 @@ footer .social-links a:hover img {
 .font-size-controls {
   position: fixed;
   top: 20px;
-  left: 20px;
+  left: 20px; /* Aligned with body margin */
   z-index: 1000;
   display: flex;
   gap: 8px;
@@ -593,12 +615,19 @@ footer .social-links a:hover img {
 .font-size-controls button:hover {
   background: rgb(120, 0, 0);
 }
+
 @media (max-width: 480px) {
   .font-size-controls {
-    font-size: 5px;
+    left: 20px; /* Maintain consistent alignment */
+    font-size: 10px; /* Slightly larger than original 5px for better usability */
     padding: 3px 5px;
   }
+  
+  .font-size-controls button {
+    font-size: 10px;
+  }
 }
+
 /* ======================
    Lists
 ====================== */
@@ -637,16 +666,68 @@ ul.custom-bullets {
   top: 60px;
   list-style: none;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 16px;
   padding: 0;
   justify-content: center;
 }
 
+.image-gallery li {
+  flex: 1 1 200px;
+  max-width: 200px;
+}
+
 .image-gallery li img {
+  width: 100%;
+  height: auto;
   border-radius: 8px;
   transition: transform 0.2s ease, filter 0.3s ease;
   filter: grayscale(100%);
+  display: block;
+}
+
+/* Responsive tweaks */
+@media (max-width: 769px) {
+  .image-gallery {
+    gap: 12px;
+  }
+
+  .image-gallery li {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-gallery {
+     gap: 6px;
+    padding: 0 8px;
+  }
+
+  .image-gallery li {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+@media (min-width: 769px) {
+  
+.image-gallery {
+  position: relative;
+  align-items:center;
+}
+.image-gallery li {
+  flex: none;
+  max-width: none;
+}
+.image-gallery li img {
+  align-items: left;
+  border-radius: 8px;
+  transition: transform 0.2s ease, filter 0.3s ease;
+  filter: grayscale(100%);
+  height: 200px;
+  width: auto;
+  display: block;
 }
 
 .image-gallery li img:hover {
@@ -654,61 +735,8 @@ ul.custom-bullets {
   filter: grayscale(0%);
   cursor: pointer;
 }
-@media (max-width: 480px) {
-  .image-gallery {
-
-    flex-wrap: wrap;
-    gap: 0px;
-    padding: 0;
-  }
-}
-/* ======================
-   Lightbox Fixes
-====================== */
-
-.lb-outerContainer,
-.lb-container,
-.lb-image {
-  width: 900px !important;
-  height: 600px !important;
-  min-width: 900px !important;
-  min-height: 600px !important;
-  max-width: 90vw !important;
-  max-height: 80vh !important;
-  object-fit: cover !important;
 }
 
-@media (max-width: 768px) {
-  .lb-outerContainer,
-  .lb-container,
-  .lb-image {
-    width: 90vw !important;
-    height: 64vw !important;
-  }
-}
-
-.lb-caption {
-  font-size: 16px;
-  color: #eee;
-  text-align: left;
-  margin-top: 10px;
-  padding: 10px 20px;
-  border-radius: 6px;
-  background: none;
-}
-
-.lb-data {
-  text-align: center;
-}
-
-.lb-dataContainer {
-  position: relative;
-  bottom: -20px;
-  width: 100%;
-  text-align: center;
-  background: transparent;
-  box-shadow: none;
-}
 
 /* ======================
    Blood Bar
@@ -720,16 +748,17 @@ ul.custom-bullets {
   left: 0;
   width: 100%;
   z-index: 999;
-  padding: 10px 0;
+  padding: 10px 20px; /* Add horizontal padding to align with body margin */
   background: transparent;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .blood-bar-container {
   position: relative;
-  margin: 0 20px;
+  margin: 0;
   width: 15%;
   max-width: 1000px;
   height: 10px;
@@ -768,22 +797,34 @@ ul.custom-bullets {
   position: fixed;
   font-family: 'Manrope', sans-serif;
   font-size: 30px;
-  right: 50px;
+  right: 20px;
   top: 10px;
-  
   z-index: 1000;
   display: flex;
- 
   padding: 5px 10px;
   border-radius: 8px;
-  
-  width: 30px;
+  width: auto; /* Allow width to accommodate text */
+  min-width: 30px;
   height: 30px;
   color: rgb(205, 4, 4);
   background-color: transparent;
   cursor: url("../img/cursor.png") 4 4, pointer;
   border: none;
   font-size: 16px;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+@media (max-width: 600px) {
+  .hamburger {
+    right: 10px; /* More space for "home" text */
+  }
+}
+
+@media (max-width: 480px) {
+  .hamburger {
+    right: 10px; /* Ensure full text is visible */
+    font-size: 14px; /* Slightly smaller text if needed */
+  }
 }
 
 .hamburger:hover {
@@ -815,7 +856,7 @@ ul.custom-bullets {
 }
 
 .hamburger:hover span {
-  background-color: transparent; /* fixed invalid 'none' value */
+  background-color: transparent;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -869,8 +910,9 @@ ul.custom-bullets {
 
 #loader {
   position: fixed;
-  bottom: 0;
-  left: 50.66%;
+  bottom: 50%;
+  left: 53%;
+  transform: translateX(-50%); /* Perfect centering */
   background-size: cover;
   background: transparent;
   color: rgb(205, 4, 4);
@@ -878,17 +920,15 @@ ul.custom-bullets {
   align-items: center;
   justify-content: center;
   font-family: 'AntoniadisBasic', sans-serif;
-  font-size: 24px;
+  font-size: 50px;
   z-index: 9999;
-  transition: opacity 2s ease;
+  transition: opacity 2s ease, bottom 2s ease, font-size 2s ease;
 }
-
-@media (max-width: 480px) {
+@media (min-width: 768px) {
   #loader {
-    left: 52%;
+    left: 51%;
   }
 }
-
 #page-content {
   opacity: 0;
   visibility: hidden;
@@ -902,6 +942,8 @@ ul.custom-bullets {
 
 #loader.fade-out {
   opacity: 0;
+  bottom: 0;
+  font-size: 24px;
   pointer-events: none;
 }
 

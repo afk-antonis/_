@@ -14,7 +14,7 @@ if (isNaN(currentSize)) {
 }
 
 function updateFontSize(delta) {
-  currentSize = Math.min(32, Math.max(12, currentSize + delta));
+  currentSize = Math.min(72, Math.max(6, currentSize + delta));
   root.style.setProperty("--base-font-size", `${currentSize}px`);
 }
 
@@ -39,6 +39,26 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("font-bigger")?.addEventListener("click", () => updateFontSize(2));
 
     setupNavigation();
+
+    // ✅ Mobile-only home button translation on click
+    const isMobile = window.matchMedia("(hover: none)").matches;
+    const translations = ["home", "heim", "σπίτι"];
+    let lastIndex = -1;
+
+    if (isMobile) {
+      const homeButton = document.querySelector(".home-button");
+      if (homeButton) {
+        homeButton.addEventListener("click", () => {
+          let index;
+          do {
+            index = Math.floor(Math.random() * translations.length);
+          } while (index === lastIndex);
+          lastIndex = index;
+          homeButton.textContent = translations[index];
+        });
+      }
+    }
+
   });
 });
 

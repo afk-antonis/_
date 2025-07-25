@@ -9,8 +9,34 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <style>
+   :root {
+      --base-font-size: 30px;
+    }
+
+   @media (max-width: 480px) {
+      :root {
+      --base-font-size: 24px;
+    }
+      
+      p {
+      font-family: 'Rag'; 
+      font-weight: 200; 
+      text-align: justify; 
+      font-size: 40px;
+      text-align: justify;
+    }
+  }
+
+    p {
+      font-family: 'Rag'; 
+      font-weight: 200; 
+      text-align: justify; 
+      font-size: 35px;
+      text-align: justify;
+    }
     li {
       font-family: 'Manrope';
+      font-weight: 700;
       text-align: justify;
     }
 
@@ -20,7 +46,9 @@
     }
     h2 {
       font-family: 'AntoniadisBasic' !important;
-      
+    }
+    b {
+      font-family: 'Rag' !important;
     }
   </style>
 </head>
@@ -50,38 +78,39 @@
   <!-- Main Content -->
   <main style="padding: 20px;">
      <section>
-      <p style="font-family: 'Rag'; font-weight: 200; text-align: justify; font-size: 40px;">work (selection)</p>
+      <p>work (selection)</p>
     </section>
     <!-- Theatre Section -->
     <section>
-      <h2>theatre</h2>
-      <ul class="image-bullets">
-        <li>2024 - <i>Scheitern, Scheitern, Scheitern</i> - D: Thieß Brammer, Dominik Weber, Stephanie Simons - Theater Freiburg</li>
-        <li>2024 - <i>Woyzeck</i> - D: Bojana Lazić - Theater Freiburg</li>
-        <li>2023 - <i>Hinauf zu den Sternen</i> - D: Nicolas Charaux - Theater Freiburg</li>
-        <li>2022 - <i>Professor Bernhardi</i> - D: Amir Reza Koohestani - Theater Freiburg</li>
-        <li>2022 - <i>Der Trafikant</i> - D: Eike Weinreich - Theater Freiburg</li>
-        <li>2021 - <i>Letzter Stand I: allos autos</i> - D: Leonie Jenning, Martha von Mechow - Volksbühne am Rosa-Luxemburg-Platz</li>
-        <li>2020 - <i>Pfisters Mühle</i> - D: Rebekka David - Staatstheater Braunschweig</li>
-        <li>2018 - <i>Hyper Emotional Family</i> - D: Leonie Jenning, Martha von Mechow - Berliner Ringtheater</li>
-        <li>2017 - <i>Sabotage Camouflage</i> - D: Leonie Jenning, Martha von Mechow - Volksbühne am Rosa-Luxemburg-Platz</li>
+      <h2>THEATRE</h2>
+      <ul style="list-style-type: none; padding: 0;">
+        <li><b>2024</b> - <i>Scheitern, Scheitern, Scheitern</i> - D: Thieß Brammer, Dominik Weber, Stephanie Simons - Theater Freiburg</li>
+        <li><b>2024</b> - <i>Woyzeck</i> - D: Bojana Lazić - Theater Freiburg</li>
+        <li><b>2023</b> - <i>Hinauf zu den Sternen</i> - D: Nicolas Charaux - Theater Freiburg</li>
+        <li><b>2022</b> - <i>Professor Bernhardi</i> - D: Amir Reza Koohestani - Theater Freiburg</li>
+        <li><b>2022</b> - <i>Der Trafikant</i> - D: Eike Weinreich - Theater Freiburg</li>
+        <li><b>2021</b> - <i>Letzter Stand I: allos autos</i> - D: Leonie Jenning, Martha von Mechow - Volksbühne am Rosa-Luxemburg-Platz</li>
+        <li><b>2020</b> - <i>Pfisters Mühle</i> - D: Rebekka David - Staatstheater Braunschweig</li>
+        <li><b>2018</b> - <i>Hyper Emotional Family</i> - D: Leonie Jenning, Martha von Mechow - Berliner Ringtheater</li>
+        <li><b>2017</b> - <i>Sabotage Camouflage</i> - D: Leonie Jenning, Martha von Mechow - Volksbühne am Rosa-Luxemburg-Platz</li>
       </ul>
     </section>
 
-    <!-- Cinema Section -->
+    <!-- Cinema Section 
+    <ul  class="image-bullets"-->
     <section>
-      <h2>cinema</h2>
-      <ul class="image-bullets">
-        <li>2025 - <i>Nosejob</i> - D: Leo Geissler - short film</li>
-        <li>2024 - <i>Camel Blues</i> - D: Leo Geissler - short film</li>
-        <li>2022 - <i>So long daddy, see you in hell</i> - D: Christopher Roth - feature film</li>
-        <li>2017 - <i>Tankstellen der Befindlichkeit</i> - D: Martha von Mechow - short film</li>
+      <h2>CINEMA</h2>
+      <ul style="list-style-type: none; padding: 0;">
+        <li><b>2025</b> - <i>Nosejob</i> - D: Leo Geissler - short film</li>
+        <li><b>2024</b> - <i>Camel Blues</i> - D: Leo Geissler - short film</li>
+        <li><b>2022</b> - <i>So long daddy, see you in hell</i> - D: Christopher Roth - feature film</li>
+        <li><b>2017</b> - <i>Tankstellen der Befindlichkeit</i> - D: Martha von Mechow - short film</li>
       </ul>
     </section>
 
     <!-- Music Section -->
     <section>
-      <h2>music</h2>
+      <h2>MUSIC</h2>
       <audio controls>
         <source src="assets/audio/askese.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
@@ -94,7 +123,7 @@
 
     <!-- Masks Section -->
     <section>
-      <h2>masks</h2>
+      <h2>MASK</h2>
       <img src="assets/img/maske1.jpg" alt="working" width="300" />
       <img src="assets/img/maske2.jpg" alt="douglas2024" height="400" />
       <img src="assets/img/maske3.jpg" alt="le coq" height="400" />

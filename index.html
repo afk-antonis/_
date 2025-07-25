@@ -14,7 +14,7 @@
     }
     @media (max-width: 480px) {
       :root {
-      --base-font-size: 24px;
+      --base-font-size: 22px;
     }
   }
     html, body {
@@ -32,10 +32,11 @@
     body {
       display:flex;
       flex-direction: column;
-      background-image: url('assets/img/indexback.jpeg');
+      background-image: url('assets/img/indexback.jpg');
+      background-blend-mode:screen;
       width: 100%;
       height: auto;
-      background-position: 40% 50%;
+      background-position: 50% 20%;
       background-repeat: no-repeat;
     }
 
@@ -83,8 +84,8 @@
         width: 30vh;
         height: 30vh;
       }
-      body{
-        background-position: 48% 60%;
+      body {
+        background-size: cover;
       }
     }
 
@@ -95,7 +96,7 @@
       padding-left: 30px;
       font-family: 'Manrope', sans-serif;
       font-weight: 900;
-      color: #04cdcd;
+      color: #cd0404;
     }
     @media screen and (max-width: 480px) {
       main.content > h1 {
@@ -114,7 +115,7 @@
     .marquee-content {
       font-family: 'Manrope', sans-serif;
       font-weight: 900;
-            color: #04cdcd !important;
+            color: #cd0404 !important;
 
       direction: ltr;
     }

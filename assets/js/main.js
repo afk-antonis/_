@@ -109,7 +109,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function tick() {
     if (isPaused || burstActive) return;
-    const triggerRare = Math.random() < 0.35;
+    const triggerRare = Math.random() < 0.4;
     if (triggerRare) {
       showRareBurst();
     } else {
@@ -119,7 +119,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function startRotation() {
     if (intervalId) clearInterval(intervalId);
-    intervalId = setInterval(tick, 2000);
+    intervalId = setInterval(tick, 2500);
   }
 
   function pauseRotation() {

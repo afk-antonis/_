@@ -24,9 +24,9 @@ function updateFontSize(delta) {
 window.addEventListener("DOMContentLoaded", () => {
   // Load includes in sequence
   Promise.all([
-    fetch('assets/includes/home-button.html').then(res => res.text()),
-    fetch('assets/includes/footer.html').then(res => res.text()),
-    fetch("nav.html").then(res => res.text())
+    fetch('/assets/includes/home-button.html').then(res => res.text()),
+    fetch('/assets/includes/footer.html').then(res => res.text()),
+    fetch("/nav.html").then(res => res.text())
   ]).then(([homeButtonHTML, footerHTML, navHTML]) => {
     document.getElementById("home-button-container").innerHTML = homeButtonHTML;
     document.getElementById("footer-placeholder").innerHTML = footerHTML;
